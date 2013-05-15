@@ -5,6 +5,17 @@ Simple Sublime 2 plugin for listing LESS variables used in a file.
 
 The default hotkey is <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd>.
 
-It displays a list of LESS variables used in your current file allowing you to insert a selected one directly into your code.
+It displays a list of LESS variables used in your current file allowing you to insert a selected one 
+directly into your code.
+
+Note that the plugin automatically ignores anything which looks like a vendor prefixed statement (e.g. 
+`@-webkit-keyframes`) and reserved words (e.g. `@media`, `@import` etc.)
 
 ![Screenshot](http://i40.tinypic.com/34gn7zs.png)
+
+Installation
+------------
+
+The plugin will be added to Package Control during the next merger. Until then, simply clone the repo 
+into your plugins folder.
+
