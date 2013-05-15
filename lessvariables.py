@@ -6,7 +6,7 @@ class ListLessVariables(sublime_plugin.TextCommand):
     	if not fn.endswith(".less"):
     		return
         self.variables = []
-        self.view.find_all("(@(?!(import|media|page|keyframes|font-face|(-(webkit|moz|o|ms)-)))[^\s\\];:]*)", 0, "$1", self.variables)
+        self.view.find_all("(@(?!((import|media|page|keyframes|font-face)(\s|\{)|(-(webkit|moz|o|ms)-)))[^\s\\];:\{]*)", 0, "$1", self.variables)
         self.variables = list(set(self.variables))
         self.variables.sort()
         self.view.window().show_quick_panel(self.variables, self.insert_variable, sublime.MONOSPACE_FONT)
