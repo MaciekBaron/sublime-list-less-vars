@@ -11,7 +11,7 @@ directly into your code.
 Note that the plugin automatically ignores anything which looks like a vendor prefixed statement (e.g. 
 `@-webkit-keyframes`) and reserved words (e.g. `@media`, `@import` etc.)
 
-![Screenshot](http://i40.tinypic.com/34gn7zs.png)
+![Screenshot](http://i41.tinypic.com/eajivq.png)
 
 Installation
 ------------
