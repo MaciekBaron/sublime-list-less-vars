@@ -18,5 +18,5 @@ class ListLessVariables(sublime_plugin.TextCommand):
             return
         edit = self.view.begin_edit()
         startloc = self.view.sel()[-1].end()
-        self.view.insert(edit, startloc, self.variables[choice])
+        self.view.insert(edit, startloc, self.variables[choice][0])
         self.view.end_edit(edit)
