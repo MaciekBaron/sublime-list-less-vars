@@ -3,7 +3,8 @@ sublime-list-less-vars
 
 Simple Sublime 2 plugin for listing LESS variables used in a file.
 
-The default hotkey is <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> on Linux).
+The default hotkey is <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>
++<kbd>L</kbd> on Linux to avoid conflicts with the lock screen hotkey).
 
 It displays a list of LESS variables used in your current file allowing you to insert a selected one 
 directly into your code. It also supports `@import`ed LESS files so you can use variables defined in 
