@@ -6,7 +6,7 @@ class ListLessVariables(sublime_plugin.TextCommand):
         if not fn.endswith(".less"):
             return
         self.variables = []
-        self.view.find_all("(@[^\s\\]*;:,\{]*): *(.*);", 0, "$1|$2", self.variables)
+        self.view.find_all("(@[^\s\\]]*): *(.*);", 0, "$1|$2", self.variables)
         self.variables = list(set(self.variables))
         self.variables.sort()
         for i, val in enumerate(self.variables):
