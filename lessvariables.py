@@ -9,7 +9,7 @@ class ListLessVariables(sublime_plugin.TextCommand):
         # Handle imports
         imports = []
         imported_vars = []
-        self.view.find_all("@import \"(.*)\";", 0, "/$1.less", imports)
+        self.view.find_all("@import \"(.*)\";", 0, "/$1", imports)
 
         file_dir = os.path.dirname(fn)
 
@@ -17,10 +17,9 @@ class ListLessVariables(sublime_plugin.TextCommand):
             try:
                 filename = val
 
-                if filename.find(".") == -1:
+                if re.search(".less(import)?", filename) == None:
                     filename += ".less"
-
-                f = open(os.path.normpath(file_dir) + filename, 'r')
+                f = open(os.path.normpath(file_dir + filename), 'r')
                 contents = f.read()
 
                 m = re.findall("(@[^\s\\]]*): *(.*);", contents)
