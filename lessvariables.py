@@ -20,7 +20,7 @@ class ListLessVariables(sublime_plugin.TextCommand):
                 if filename.find(".") == -1:
                     filename += ".less"
 
-                f = open(file_dir + filename, 'r')
+                f = open(os.path.normpath(file_dir) + filename, 'r')
                 contents = f.read()
 
                 m = re.findall("(@[^\s\\]]*): *(.*);", contents)
