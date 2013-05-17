@@ -15,7 +15,12 @@ class ListLessVariables(sublime_plugin.TextCommand):
 
         for i, val in enumerate(imports):
             try:
-                f = open(file_dir + val, 'r')
+                filename = val
+
+                if filename.find(".") == -1:
+                    filename += ".less"
+
+                f = open(file_dir + filename, 'r')
                 contents = f.read()
 
                 m = re.findall("(@[^\s\\]]*): *(.*);", contents)
