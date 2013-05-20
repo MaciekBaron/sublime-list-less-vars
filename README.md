@@ -18,7 +18,4 @@ Note that the plugin automatically ignores anything which looks like a vendor pr
 
 Installation
 ------------
-
-The plugin will be added to Package Control during the next merger. Until then, simply clone the repo 
-into your plugins folder.
-
+You can use the Sublime Package Manager to install this plugin.
