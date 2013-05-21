@@ -1,4 +1,4 @@
-sublime-list-less-vars
+List LESS variables
 ======================
 
 Simple Sublime 2 plugin for listing LESS variables used in a file (check out [this branch](https://github.com/MaciekBaron/sublime-list-less-vars/tree/python3) 
