@@ -1,8 +1,7 @@
 List LESS variables
 ======================
 
-Simple Sublime 2 plugin for listing LESS variables used in a file (check out [this branch](https://github.com/MaciekBaron/sublime-list-less-vars/tree/python3) 
-for a Sublime 3 version).
+Simple Sublime 2/3 plugin for listing LESS variables used in a file.
 
 The default hotkey is <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>
 +<kbd>L</kbd> on Linux to avoid conflicts with the lock screen hotkey).
