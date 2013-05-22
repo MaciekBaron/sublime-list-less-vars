@@ -2,8 +2,10 @@ import sublime, sublime_plugin, os, re
 
 class ListLessVariables(sublime_plugin.TextCommand):
     def run(self, edit):
+        regex = "(@[^\s\\]]*): *(.*);"
+        self.edit = edit
         fn = self.view.file_name().encode("utf_8")
-        if not fn.endswith(".less"):
+        if not fn.endswith(b'.less'):
             return
             
         # Handle imports
@@ -19,19 +21,21 @@ class ListLessVariables(sublime_plugin.TextCommand):
 
                 if re.search(".less(import)?", filename) == None:
                     filename += ".less"
-                f = open(os.path.normpath(file_dir + filename), 'r')
-                contents = f.read()
 
-                m = re.findall("(@[^\s\\]]*): *(.*);", contents)
+                f = open(os.path.normpath(file_dir.decode("utf-8") + filename), 'r')
+                contents = f.read()
+                f.close()
+
+                m = re.findall(regex, contents)
                 imported_vars = imported_vars + m
             except:
-                print "Could not load file " + val
+                print('Could not load file ' + val)
 
         # Convert a list of tuples to a list of lists
         imported_vars = [list(item) for item in imported_vars]
 
         self.variables = []
-        self.view.find_all("(@[^\s\\]]*): *(.*);", 0, "$1|$2", self.variables)
+        self.view.find_all(regex, 0, "$1|$2", self.variables)
         self.variables = list(set(self.variables))
         for i, val in enumerate(self.variables):
             self.variables[i] = val.split("|")
@@ -42,7 +46,8 @@ class ListLessVariables(sublime_plugin.TextCommand):
     def insert_variable(self, choice):
         if choice == -1:
             return
-        edit = self.view.begin_edit()
-        startloc = self.view.sel()[-1].end()
-        self.view.insert(edit, startloc, self.variables[choice][0])
-        self.view.end_edit(edit)
+        self.view.run_command('insert_text', {'string': self.variables[choice][0]})
+
+class InsertText(sublime_plugin.TextCommand):
+    def run(self, edit, string=''):
+        self.view.insert(edit, self.view.sel()[-1].end(), string)
