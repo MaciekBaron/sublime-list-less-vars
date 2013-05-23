@@ -15,6 +15,9 @@ Note that the plugin automatically ignores anything which looks like a vendor pr
 
 ![Screenshot](http://i41.tinypic.com/eajivq.png)
 
+Please note that the plugin currently does not understand variable scope and therefore will display all 
+the occurances of a variable.
+
 Installation
 ------------
 You can use the Sublime Package Manager to install this plugin.
