@@ -2,6 +2,9 @@ import sublime, sublime_plugin, os, re
 
 class ListLessVariables(sublime_plugin.TextCommand):
     def run(self, edit):
+        settings = sublime.load_settings('lessvariables.sublime-settings')
+
+        handle_imports = settings.get("readImported")
         regex = "(@[^\s\\]]*): *(.*);"
         self.edit = edit
         fn = self.view.file_name().encode("utf_8")
@@ -11,28 +14,30 @@ class ListLessVariables(sublime_plugin.TextCommand):
         # Handle imports
         imports = []
         imported_vars = []
-        self.view.find_all("@import \"(.*)\";", 0, "/$1", imports)
 
-        file_dir = os.path.dirname(fn)
+        if handle_imports:
+            self.view.find_all("@import \"(.*)\";", 0, "/$1", imports)
 
-        for i, val in enumerate(imports):
-            try:
-                filename = val
+            file_dir = os.path.dirname(fn)
 
-                if re.search(".less(import)?", filename) == None:
-                    filename += ".less"
+            for i, val in enumerate(imports):
+                try:
+                    filename = val
 
-                f = open(os.path.normpath(file_dir.decode("utf-8") + filename), 'r')
-                contents = f.read()
-                f.close()
+                    if re.search(".less(import)?", filename) == None:
+                        filename += ".less"
 
-                m = re.findall(regex, contents)
-                imported_vars = imported_vars + m
-            except:
-                print('Could not load file ' + val)
+                    f = open(os.path.normpath(file_dir.decode("utf-8") + filename), 'r')
+                    contents = f.read()
+                    f.close()
 
-        # Convert a list of tuples to a list of lists
-        imported_vars = [list(item) for item in imported_vars]
+                    m = re.findall(regex, contents)
+                    imported_vars = imported_vars + m
+                except:
+                    print('Could not load file ' + val)
+
+            # Convert a list of tuples to a list of lists
+            imported_vars = [list(item) for item in imported_vars]
 
         self.variables = []
         self.view.find_all(regex, 0, "$1|$2", self.variables)
