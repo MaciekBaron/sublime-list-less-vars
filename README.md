@@ -8,7 +8,7 @@ The default hotkey is <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (or <kbd>Ctrl<
 
 It displays a list of LESS variables used in your current file allowing you to insert a selected one 
 directly into your code. It also supports `@import`ed LESS files so you can use variables defined in 
-external files.
+external files. This can be disabled in settings.
 
 Note that the plugin automatically ignores anything which looks like a vendor prefixed statement (e.g. 
 `@-webkit-keyframes`) and reserved words (e.g. `@media`, `@import` etc.)
