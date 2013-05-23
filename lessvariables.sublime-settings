@@ -1,12 +1,5 @@
 /*
  * List LESS variables default settings
- *
- * ******** IMPORTANT ********
- *
- * DO NOT modify this file,
- * Copy the content to user settings
- * via "Preferences" -> "Package Settings" -> "List LESS Variables" -> "Settings - User".
- *
  */
  {
   "readImported": true
