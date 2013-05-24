@@ -20,7 +20,7 @@ the occurances of a variable.
 
 Installation
 ------------
-You can use the Sublime Package Manager to install this plugin. Alternatively, clone the repo to you 
+You can use the Sublime Package Manager to install this plugin. Alternatively, clone the repo into your 
 Packages folder.
 
 Configuration
