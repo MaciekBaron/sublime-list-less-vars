@@ -5,6 +5,8 @@ class ListLessVariables(sublime_plugin.TextCommand):
         settings = sublime.load_settings('lessvariables.sublime-settings')
 
         handle_imports = settings.get("readImported")
+        read_all_views = settings.get("readAllViews")
+
         regex = "(@[^\s\\]]*): *(.*);"
         self.edit = edit
         fn = self.view.file_name().encode("utf_8")
@@ -40,7 +42,20 @@ class ListLessVariables(sublime_plugin.TextCommand):
             imported_vars = [list(item) for item in imported_vars]
 
         self.variables = []
-        self.view.find_all(regex, 0, "$1|$2", self.variables)
+
+        vars_from_views = []
+
+        if read_all_views:
+            for view in self.view.window().views():
+                viewfn = view.file_name().encode("utf_8")
+                if viewfn.endswith(b'.less') or viewfn.endswith(b'.lessimport'):
+                    viewvars = []
+                    view.find_all(regex, 0, "$1|$2", viewvars)
+                    vars_from_views += viewvars
+        else:
+            self.view.find_all(regex, 0, "$1|$2", self.variables)
+            
+        self.variables += vars_from_views
         self.variables = list(set(self.variables))
         for i, val in enumerate(self.variables):
             self.variables[i] = val.split("|")
