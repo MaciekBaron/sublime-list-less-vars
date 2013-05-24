@@ -20,4 +20,16 @@ the occurances of a variable.
 
 Installation
 ------------
-You can use the Sublime Package Manager to install this plugin.
+You can use the Sublime Package Manager to install this plugin. Alternatively, clone the repo to you 
+Packages folder.
+
+Configuration
+-------------
+The settings file has currently two options:
+
+ - `readImported` (default: `true`) - decides whether the plugin should attempt to read imported files
+ - `readAllViews` (default: `false`) - decides whether the plugin should attempt to read all opened LESS 
+files
+
+Currently if the plugin checks all opened LESS files, it will only check for imported files in the currently 
+selected file.
