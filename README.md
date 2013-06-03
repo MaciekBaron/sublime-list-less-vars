@@ -3,6 +3,8 @@ List LESS variables
 
 Simple Sublime 2/3 plugin for listing LESS variables used in a file.
 
+(Looking for a SASS, Stylus version? Check out the beta version of the [universal plugin](https://github.com/MaciekBaron/sublime-list-stylesheet-vars))
+
 The default hotkey is <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>
 +<kbd>L</kbd> on Linux to avoid conflicts with the lock screen hotkey).
 
