@@ -18,7 +18,8 @@ class ListLessVariables(sublime_plugin.TextCommand):
         imported_vars = []
 
         if handle_imports:
-            self.view.find_all("@import \"(.*)\";", 0, "/$1", imports)
+            self.view.find_all("@import-once [\'\"](.*)[\'\"]", 0, "/$1", imports)
+            self.view.find_all("@import [\'\"](.*)[\'\"]", 0, "/$1", imports)
 
             file_dir = os.path.dirname(fn)
 
