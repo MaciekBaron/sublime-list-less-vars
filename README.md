@@ -1,3 +1,5 @@
+This plugin has been superseeded by the [universal plugin](https://github.com/MaciekBaron/sublime-list-stylesheet-vars)
+
 List LESS variables
 ======================
 
