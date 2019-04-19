@@ -1,5 +1,5 @@
 [
-  {
-    "keys": ["ctrl+shift+l"], "command": "list_less_variables"
-  }
+	{
+	    "keys": ["ctrl+shift+à"], "command": "list_less_variables"
+	},
 ]
